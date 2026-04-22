@@ -16,10 +16,10 @@
 ## 👥 Team Updates
 
 ### Gabrielle
-* **Yesterday:** * **Today:** * **Blockers:** ### Ethan
-* **Yesterday:** * **Today:** * **Blockers:** ### Michael
-* **Yesterday:** * **Today:** * **Blockers:** ### Kareem
-* **Yesterday:** * **Today:** * **Blockers:** ### Theo
+* **Yesterday:** * **Today:** * **Blockers:** ###Ethan
+* **Yesterday:** * **Today:** * **Blockers:** ###Michael
+* **Yesterday:** * **Today:** * **Blockers:** ###Kareem
+* **Yesterday:** * **Today:** * **Blockers:** ###Theo
 * **Yesterday:** * **Today:** * **Blockers:** *(Duplicate for remaining team members)*
 
 ---
