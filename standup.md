@@ -1,36 +1,56 @@
-# Standup Notes
+# Daily Standup
 
-## Date: [DATE]
+## Date and Time
 
-### Yesterday
-- [ ] Task 1
-- [ ] Task 2
-- [ ] Task 3
+Insert Date, Time
 
-### Today
-- [ ] Task 1
-- [ ] Task 2
-- [ ] Task 3
+## Team
 
-### Blockers / Impediments
-- None
+List team members present
 
-### Notes / Comments
-- 
+## Meeting type
 
----
+e.g., Daily engineering standup (15 min timebox)
 
-## Previous Standups
+## Facilitator
 
-### Date: [DATE]
-**Yesterday:**
-- 
+Name of today's facilitator / scrum lead
 
-**Today:**
-- 
+## Sprint Context
 
-**Blockers:**
-- 
+Link to current sprint board, goal, or reference docs
 
-**Notes:**
-- 
+Quick reminder of the sprint goal before updates begin
+
+## Status Updates
+
+| Team Member | Yesterday | Today | Blockers |
+| --- | --- | --- | --- |
+| mention first team member | e.g., Wrapped up auth refactor PR | e.g., Start on rate-limiting middleware | e.g., Waiting on design review |
+| mention second team member | e.g., Debugged staging deploy issue | e.g., Pair on checkout bug with Sam | e.g., None |
+| mention third team member | e.g., Reviewed 3 PRs, shipped hotfix | e.g., Kick off analytics spike | e.g., Need access to prod logs |
+
+## Blockers & Dependencies
+
+| Blocker | Owner | Help Needed | Target Resolution |
+| --- | --- | --- | --- |
+| State the blocker | Who owns unblocking it | What specifically is needed | When it should clear |
+
+## Announcements
+
+Anything the team should know: releases, on-call changes, time off, incidents, demos
+
+## Parking Lot
+
+Topics raised that need deeper discussion outside standup — capture here and schedule a follow-up
+
+## Action Items
+
+Add action items that come out of standup and check off as they're completed
+
+- [ ] (Type your action, assign to someone, add due date)
+- [ ] (Type your action, assign to someone, add due date)
+
+## Notes
+
+Any additional context, links, or observations worth keeping for next time
