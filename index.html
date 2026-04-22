@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Meeting minutes for the Engineering Team - Pomodoro Timer Project">
     <title>Engineering Team Meeting Minutes - Pomodoro Timer Brainstorm</title>
+
+    <!-- 3rd-party Google Fonts: Fraunces (display serif) + DM Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+
+    <!-- External stylesheet (bulk of the CSS lives here) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Example of using the <style> element directly in the HTML.
+         This one overrides the footer copyright's look and demonstrates
+         the :has() selector scoped right here in the page. -->
+    <style>
+        /* In-page <style>: give the footer copyright a tiny badge look */
+        footer small {
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        /* Scope-local :has() — adjusts the "next meeting" paragraph
+           only when the footer contains a small element */
+        footer:has(small) h3 {
+            padding-top: 0.25rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -74,7 +100,7 @@
         <!-- Unfinished Business Section -->
         <section id="unfinished">
             <h2>Unfinished Business from Previous Meeting</h2>
-            <p>No unfinished business from previous meetings. This is the first brainstorming session for this project.</p>
+            <p style="font-style: italic; color: hsl(25, 40%, 35%); margin-top: 0.75rem;">No unfinished business from previous meetings. This is the first brainstorming session for this project.</p>
         </section>
 
         <hr>
@@ -86,7 +112,7 @@
             <section>
                 <h3>Project Overview</h3>
                 <p>The team is building a <strong>Pomodoro Timer web application</strong> to help users manage their time effectively using the Pomodoro Technique. The application will be a modern, user-friendly tool for productivity tracking.</p>
-                <p><i>Key features discussed:</i></p>
+                <p class="highlight"><i>Key features discussed:</i></p>
                 <ul>
                     <li>Customizable timer intervals (work and break periods)</li>
                     <li>Task list integration</li>
