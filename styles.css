@@ -1,0 +1,625 @@
+/* =======================================================
+   Pomodoro Timer Meeting Minutes — Editorial Stylesheet
+   Author: Student Lab Submission
+   Note: Comments throughout help explain intent.
+   ======================================================= */
+
+/* -------------------------------------------------------
+   1. CSS VARIABLES (with fallback demonstrated in body)
+   ------------------------------------------------------- */
+:root {
+    /* Color system — demonstrating all color formats */
+    --tomato:         rgb(217, 79, 58);                          /* rgb()   */
+    --tomato-soft:    rgba(217, 79, 58, 0.12);                   /* rgba()  */
+    --cream:          #faf6f0;                                   /* 6-digit hex */
+    --paper:          #FFF;                                      /* 3-digit hex */
+    --ink:            hsl(25, 15%, 15%);                         /* hsl()   */
+    --ink-muted:      hsla(25, 10%, 30%, 0.75);                  /* hsla()  */
+    --leaf:           darkolivegreen;                            /* named color */
+    --accent-wide:    color(display-p3 0.95 0.45 0.25);          /* wider-gamut color() */
+    --sunset:         color-mix(in oklab, tomato 65%, gold 35%); /* color-mix() */
+
+    /* Spacing + radius tokens */
+    --radius-sm: 4px;
+    --radius-md: 10px;
+    --radius-lg: 18px;
+    --shadow-soft: 0 4px 14px rgba(40, 20, 10, 0.08);
+    --shadow-lift: 0 12px 28px rgba(40, 20, 10, 0.14);
+
+    /* Typography tokens */
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+}
+
+/* -------------------------------------------------------
+   2. UNIVERSAL SELECTOR — reset defaults
+   ------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------------------------------------------
+   3. ELEMENT SELECTOR — base body styling
+   Demonstrates: CSS variable with a fallback value,
+   relative units (rem), and background-color.
+   ------------------------------------------------------- */
+body {
+    font-family: var(--font-body);
+    font-size: 1rem;                   /* relative unit: rem */
+    line-height: 1.65;
+    color: var(--ink, #222);           /* variable WITH fallback */
+    background-color: var(--cream);
+    /* subtle paper-grain atmosphere */
+    background-image:
+        radial-gradient(circle at 20% 10%, var(--tomato-soft), transparent 40%),
+        radial-gradient(circle at 85% 90%, rgba(85, 107, 47, 0.08), transparent 45%);
+    min-height: 100vh;                 /* relative unit: vh */
+    padding: 2rem 5%;                  /* relative unit: %  */
+}
+
+/* -------------------------------------------------------
+   4. SELECTOR LIST — shared heading treatment
+   ------------------------------------------------------- */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+/* -------------------------------------------------------
+   5. HEADER — FLEXBOX LAYOUT
+   Uses display:flex with >2 children and
+   multiple flex properties (direction, justify, align, gap, wrap).
+   ------------------------------------------------------- */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--tomato) 0%, var(--sunset) 100%);
+    color: var(--paper);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lift);
+    text-align: center;
+    position: relative;               /* POSITION value #1: relative */
+    overflow: hidden;
+}
+
+/* Descendant combinator + adjacent sibling combinator */
+header h1 {
+    font-size: 2.75rem;
+    font-style: italic;
+}
+header h1 + p {                        /* ADJACENT sibling (+)      */
+    font-size: 1.125rem;
+    opacity: 0.92;
+}
+
+/* Little decorative tomato dot — uses ABSOLUTE positioning */
+header::after {
+    content: "";
+    position: absolute;               /* POSITION value #2: absolute */
+    top: 18px;
+    right: 22px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--paper);
+    opacity: 0.6;
+}
+
+/* -------------------------------------------------------
+   6. NAVIGATION — GRID LAYOUT + sticky position
+   Uses display:grid with >2 children and several
+   grid properties (template-columns, gap, auto-flow, place-items).
+   ------------------------------------------------------- */
+nav {
+    position: sticky;                 /* POSITION value #3: sticky */
+    top: 0.5rem;
+    z-index: 100;
+    background-color: var(--paper);
+    padding: 0.75rem 1rem;
+    margin-bottom: 2.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-soft);
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-auto-flow: row;
+    grid-auto-rows: minmax(2.25rem, auto);
+    gap: 0.5rem;
+    place-items: stretch;
+    list-style: none;
+}
+
+/* Child combinator (>) */
+nav > ul > li {
+    text-align: center;
+}
+
+/* Attribute selector — target anchors that point to in-page ids */
+a[href^="#"] {
+    display: inline-block;            /* DISPLAY value: inline-block */
+    width: 100%;                      /* sizing: width */
+    padding: 0.5rem 0.75rem;
+    color: var(--tomato);
+    text-decoration: none;            /* text-decoration */
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    transition: background-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+/* Pseudo-class selectors: :hover and :active */
+a[href^="#"]:hover {
+    background-color: var(--tomato-soft);
+    border-color: var(--tomato);
+}
+a[href^="#"]:active {
+    transform: translateY(1px);
+}
+
+/* -------------------------------------------------------
+   7. MAIN CONTENT — centered column
+   ------------------------------------------------------- */
+main {
+    max-width: 1100px;                /* sizing: max-width */
+    min-width: 280px;                 /* sizing: min-width */
+    margin: 0 auto;                   /* auto margin       */
+}
+
+/* General sibling combinator (~): any <p> that follows an <h2>
+   somewhere at the same level in a section */
+h2 ~ p {
+    margin-bottom: 0.5rem;
+    color: var(--ink-muted);
+}
+
+/* -------------------------------------------------------
+   8. SECTIONS — card treatment
+   Border long-hand + padding long-hand below.
+   ------------------------------------------------------- */
+section {
+    background-color: var(--paper);
+    /* LONG-HAND padding */
+    padding-top: 1.75rem;
+    padding-right: 2rem;
+    padding-bottom: 1.75rem;
+    padding-left: 2rem;
+    /* SHORT-HAND margin */
+    margin: 0 0 1.5rem 0;
+    /* LONG-HAND border */
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.06);
+    border-width: 1px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Descendant combinator */
+section h2 {
+    color: var(--tomato);
+    font-size: 1.75rem;
+    border-bottom: 2px solid var(--tomato-soft);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+section h3 {
+    color: var(--leaf);
+    font-size: 1.25rem;
+    margin: 1.25rem 0 0.5rem;
+}
+
+/* Nested sub-sections sit flat, without card-in-card chrome */
+section section {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 1.25rem;
+}
+
+/* Lists */
+ul, ol {
+    /* SHORT-HAND margin */
+    margin: 0.5rem 0 1rem 1.5rem;
+}
+
+ul li, ol li {
+    margin-bottom: 0.35rem;
+}
+
+/* COMBINING TWO SELECTORS (element.class) */
+p.highlight {
+    background-color: var(--tomato-soft);
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid var(--tomato);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+}
+
+/* -------------------------------------------------------
+   9. MEETING DETAILS / ATTENDANCE — CLASS + ID SELECTORS
+   ------------------------------------------------------- */
+#date p,
+#attendance p {
+    font-size: 0.95rem;
+}
+
+#date strong,
+#attendance strong {
+    color: var(--leaf);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+/* FLEXBOX — #date has 4 <p> children (Date/Time/Location/Meeting Type).
+   Uses 5 flex-related properties: display:flex, flex-direction,
+   flex-wrap, justify-content, align-items, gap. */
+#date {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem 2rem;
+}
+
+#date h2 {
+    flex-basis: 100%;                /* make the heading take a full row */
+}
+
+/* ID selector */
+#recordings {
+    background: linear-gradient(180deg, var(--paper) 0%, var(--cream) 100%);
+}
+
+/* -------------------------------------------------------
+   10. HR — DISPLAY: NONE  (we use margin for spacing instead)
+   ------------------------------------------------------- */
+hr {
+    display: none;                    /* DISPLAY value: none */
+}
+
+/* -------------------------------------------------------
+   11. DETAILS/SUMMARY — miscellaneous disclosure widgets
+   ------------------------------------------------------- */
+details {
+    background-color: hsl(35, 60%, 96%);
+    border-left: 4px solid var(--sunset);
+    border-radius: var(--radius-sm);
+    /* padding short-hand */
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.2s;
+}
+
+details:hover {
+    background-color: hsl(35, 70%, 93%);
+}
+
+details summary {
+    cursor: pointer;
+    font-family: var(--font-display);
+    color: var(--leaf);
+    padding: 0.25rem 0;
+}
+
+details[open] {
+    background-color: hsl(35, 70%, 92%);
+}
+
+details p {
+    margin-top: 0.5rem;
+    color: var(--ink-muted);
+}
+
+/* Inline text treatment — demonstrates display: inline via <em>/<i> */
+em, i {
+    display: inline;                  /* DISPLAY value: inline */
+    color: var(--leaf);
+}
+
+/* -------------------------------------------------------
+   12. MEDIA ELEMENTS
+   ------------------------------------------------------- */
+audio, video {
+    display: block;                   /* DISPLAY value: block */
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;                /* auto margin */
+    border-radius: var(--radius-sm);
+    border: 2px dashed var(--tomato-soft);
+}
+
+video {
+    width: 100%;
+    max-width: 560px;
+    background-color: #111;
+}
+
+/* -------------------------------------------------------
+   13. FORM — comprehensive styling
+   ------------------------------------------------------- */
+form {
+    margin-top: 1rem;
+}
+
+fieldset {
+    /* Border demonstrates all four sub-properties */
+    border-style: dashed;
+    border-color: var(--tomato);
+    border-width: 1.5px;
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem 1.25rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--paper);
+}
+
+legend {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--tomato);
+    padding: 0 0.5rem;
+    font-size: 1.05rem;
+}
+
+fieldset div {
+    margin: 0.6rem 0;
+}
+
+label {
+    display: inline-block;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    min-width: 8ch;                   /* relative unit: ch */
+}
+
+/* Attribute selectors — text-like inputs */
+input[type="text"],
+input[type="date"],
+input[type="email"] {
+    padding: 0.5rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0,0,0,0.2);
+    border-radius: var(--radius-sm);
+    background-color: var(--cream);
+    width: 100%;
+    max-width: 380px;
+    min-width: 200px;
+}
+
+/* Adjacent sibling combinator: a <label> immediately after an <input> */
+input + label {
+    font-weight: 400;
+    margin-right: 1rem;
+    min-width: 0;
+}
+
+/* Focus-style pseudo-class (expands the :hover / :active pattern) */
+input[type="text"]:hover,
+input[type="date"]:hover,
+input[type="email"]:hover {
+    border-color: var(--tomato);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--tomato);
+    outline-offset: 2px;
+}
+
+/* Radio + checkbox — custom accent */
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: var(--tomato);
+    margin-right: 0.35rem;
+    transform: scale(1.1);
+}
+
+textarea {
+    width: 100%;
+    max-width: 600px;
+    min-width: 260px;
+    height: 6rem;
+    padding: 0.5rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: var(--radius-sm);
+    background-color: var(--cream);
+    resize: vertical;
+}
+
+select {
+    padding: 0.4rem 0.75rem;
+    font-family: inherit;
+    font-size: 12pt;                  /* ABSOLUTE unit: pt */
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: var(--radius-sm);
+    background-color: var(--cream);
+    min-width: 220px;
+}
+
+/* Buttons — ELEMENT.CLASS combined selector is also used below */
+button {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.6rem 1.4rem;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0;                   /* LONG-HAND margin demonstrated */
+    border-style: solid;
+    border-color: var(--tomato);
+    border-width: 2px;
+    border-radius: 999px;
+    background-color: var(--tomato);
+    color: var(--paper);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+button:hover {
+    background-color: var(--paper);
+    color: var(--tomato);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* COMBINED element.class — reset buttons get a secondary look
+   (This demonstrates element.class combination; the Clear Form
+    button is type="reset".) */
+button[type="reset"] {
+    background-color: transparent;
+    color: var(--tomato);
+}
+
+/* -------------------------------------------------------
+   14. NESTED SELECTORS  (native CSS nesting, 2023+)
+   ------------------------------------------------------- */
+footer {
+    position: relative;
+    background-color: var(--ink);
+    color: var(--cream);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    margin-top: 3rem;
+    text-align: center;
+
+    & h3 {
+        color: var(--sunset);
+        font-style: italic;
+        margin-bottom: 0.75rem;
+    }
+
+    & p {
+        font-size: 0.95rem;
+        opacity: 0.85;
+        margin: 0.25rem 0;
+    }
+
+    & small {
+        display: inline-block;
+        margin-top: 1rem;
+        opacity: 0.6;
+    }
+}
+
+/* -------------------------------------------------------
+   15. :has() SELECTOR (adopted 2023)
+   Any <section> that contains a <form> gets a special tint.
+   ------------------------------------------------------- */
+section:has(form) {
+    background: linear-gradient(180deg, var(--paper) 0%, #fffaf4 100%);
+    border-color: var(--tomato-soft);
+}
+
+/* Also: highlight fieldsets that contain a checked radio */
+fieldset:has(input:checked) {
+    border-color: var(--leaf);
+    background-color: hsl(80, 30%, 97%);
+}
+
+/* -------------------------------------------------------
+   16. MIXED UNITS — demonstrate at least 3 relative + 3 absolute
+   Relative used so far: rem, %, vh, ch, em
+   Absolute used so far: pt (in select). Below: px, in.
+   ------------------------------------------------------- */
+nav a[href^="#"] {
+    /* Purely to demonstrate an ABSOLUTE unit (px) */
+    border-width: 1px;
+}
+
+@media print {
+    body {
+        max-width: 8in;                /* ABSOLUTE unit: inches */
+    }
+}
+
+/* -------------------------------------------------------
+   17. RESPONSIVE — media query based on screen width
+   ------------------------------------------------------- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 4%;
+        font-size: 0.95em;             /* relative unit: em */
+    }
+
+    header {
+        padding: 2rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 1.25rem 1rem;
+    }
+
+    nav ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    fieldset {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* -------------------------------------------------------
+   18. LITTLE DETAILS — the wider-gamut color is visible here
+   ------------------------------------------------------- */
+strong {
+    color: var(--accent-wide);
+}
+
+/* Text alignment demonstrations beyond footer/header */
+#recordings h3 {
+    text-align: left;
+}
+
+#date {
+    text-align: left;
+}
+
+/* End of stylesheet --------------------------------------- */
