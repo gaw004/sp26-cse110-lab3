@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meeting minutes for the Engineering Team - Pomodoro Timer Project">
+    <title>Engineering Team Meeting Minutes - Pomodoro Timer Brainstorm</title>
+
+    <!-- 3rd-party Google Fonts: Fraunces (display serif) + DM Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+
+    <!-- External stylesheet (bulk of the CSS lives here) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Example of using the <style> element directly in the HTML.
+         This one overrides the footer copyright's look and demonstrates
+         the :has() selector scoped right here in the page. -->
+    <style>
+        /* In-page <style>: give the footer copyright a tiny badge look */
+        footer small {
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        /* Scope-local :has() — adjusts the "next meeting" paragraph
+           only when the footer contains a small element */
+        footer:has(small) h3 {
+            padding-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Engineering Team Meeting Minutes</h1>
+        <p><em>Pomodoro Timer First Brainstorm Session</em></p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#attendance">Attendance</a></li>
+            <li><a href="#date">Meeting Date</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="#unfinished">Unfinished Business</a></li>
+            <li><a href="#new-business">New Business</a></li>
+            <li><a href="#misc">Miscellaneous</a></li>
+            <li><a href="#recordings">Recordings</a></li>
+            <li><a href="#feedback-form">Feedback Form</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Meeting Date Section -->
+        <section id="date">
+            <h2>Meeting Details</h2>
+            <p><strong>Date:</strong> April 10, 2026</p>
+            <p><strong>Time:</strong> 2:00 PM - 3:30 PM</p>
+            <p><strong>Location:</strong> Conference Room B</p>
+            <p><strong>Meeting Type:</strong> Brainstorming</p>
+        </section>
+
+        <hr>
+
+        <!-- Attendance Section -->
+        <section id="attendance">
+            <h2>Attendance</h2>
+            <p><strong>Present:</strong></p>
+            <ul>
+                <li>Sarah Chen (Product Lead)</li>
+                <li>Marcus Johnson (Frontend Engineer)</li>
+                <li>Priya Patel (Backend Engineer)</li>
+                <li>David Rodriguez (UX Designer)</li>
+                <li>Alex Wong (QA Engineer)</li>
+            </ul>
+            <p><strong>Absent:</strong></p>
+            <ul>
+                <li>Jamie Lee (Technical Writer) - Out of office</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- Agenda Section -->
+        <section id="agenda">
+            <h2>Agenda</h2>
+            <ol>
+                <li>Project overview and scope</li>
+                <li>User stories and requirements discussion</li>
+                <li>Technical architecture planning</li>
+                <li>Timeline and milestones</li>
+                <li>Resource allocation</li>
+                <li>Next steps and action items</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <!-- Unfinished Business Section -->
+        <section id="unfinished">
+            <h2>Unfinished Business from Previous Meeting</h2>
+            <p style="font-style: italic; color: hsl(25, 40%, 35%); margin-top: 0.75rem;">No unfinished business from previous meetings. This is the first brainstorming session for this project.</p>
+        </section>
+
+        <hr>
+
+        <!-- New Business Section -->
+        <section id="new-business">
+            <h2>New Business & Discussion</h2>
+
+            <section>
+                <h3>Project Overview</h3>
+                <p>The team is building a <strong>Pomodoro Timer web application</strong> to help users manage their time effectively using the Pomodoro Technique. The application will be a modern, user-friendly tool for productivity tracking.</p>
+                <p class="highlight"><i>Key features discussed:</i></p>
+                <ul>
+                    <li>Customizable timer intervals (work and break periods)</li>
+                    <li>Task list integration</li>
+                    <li>Progress tracking and statistics</li>
+                    <li>Notifications and alerts</li>
+                    <li>Dark mode support</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Architecture & Technical Decisions</h3>
+                <p>The team discussed the following technical approach:</p>
+                <div>
+                    <p><b>Frontend Stack:</b> HTML5, CSS3, Vanilla JavaScript</p>
+                    <p><b>Backend Stack:</b> Node.js with Express framework</p>
+                    <p><b>Database:</b> MongoDB for user data persistence</p>
+                    <p><b>Deployment:</b> Docker containers on AWS</p>
+                </div>
+                <p>A preliminary system architecture diagram was presented:</p>
+
+            <section>
+                <h3>Timeline & Milestones</h3>
+                <p>The following timeline was established:</p>
+                <ul>
+                    <li><strong>Week 1-2:</strong> Design phase and API specification <span>(April 14-25)</span></li>
+                    <li><strong>Week 3-5:</strong> Core timer functionality and backend API <span>(April 28-May 16)</span></li>
+                    <li><strong>Week 6-7:</strong> Task management and data persistence <span>(May 19-30)</span></li>
+                    <li><strong>Week 8:</strong> Testing and bug fixes <span>(June 2-6)</span></li>
+                    <li><strong>Week 9:</strong> Deployment and launch <span>(June 9-13)</span></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Resource Allocation</h3>
+                <p>Team member responsibilities were assigned as follows:</p>
+                <div>
+                    <p><b>Frontend Development:</b> Marcus Johnson (Lead) <em>with support from David Rodriguez for UX</em></p>
+                    <p><b>Backend Development:</b> Priya Patel (Lead) <em>with infrastructure setup</em></p>
+                    <p><b>Quality Assurance:</b> Alex Wong (Lead) <em>with manual and automated testing</em></p>
+                    <p><b>Product Management:</b> Sarah Chen <em>stakeholder coordination</em></p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Key Decisions Made</h3>
+                <ul>
+                    <li>Approved vanilla JavaScript for frontend <em>(no framework overhead)</em></li>
+                    <li>Agreed to use MongoDB for flexible schema <em>(supports rapid iteration)</em></li>
+                    <li>Decided to launch MVP in 6 weeks with essential features only</li>
+                    <li>Planned to implement analytics and premium features in Phase 2</li>
+                </ul>
+            </section>
+        </section>
+
+        <hr>
+
+        <!-- Miscellaneous Section -->
+        <section id="misc">
+            <h2>Miscellaneous Comments & Concerns</h2>
+            <details>
+                <summary><strong>Performance Concerns</strong></summary>
+                <p>Marcus raised concerns about timer accuracy on the frontend. The team agreed to implement a server-based timer to ensure consistency across devices. This may require additional backend work, but it's worth the effort for reliability.</p>
+            </details>
+            <details>
+                <summary><strong>Data Privacy</strong></summary>
+                <p>Priya mentioned that we need to ensure user data is encrypted both in transit and at rest. The team will review GDPR compliance requirements and implement appropriate security measures before launch.</p>
+            </details>
+            <details>
+                <summary><strong>Testing Strategy</strong></summary>
+                <p>Alex proposed an automated testing approach with unit tests, integration tests, and end-to-end tests. The team agreed this is critical for the Pomodoro timer given the time-sensitive nature of the functionality.</p>
+            </details>
+            <details>
+                <summary><strong>Browser Compatibility</strong></summary>
+                <p>David asked about browser support. We'll target modern browsers (Chrome, Firefox, Safari, Edge) from the last 2 years. Legacy browser support will be assessed post-MVP.</p>
+            </details>
+        </section>
+
+        <hr>
+
+        <!-- Recordings Section -->
+        <section id="recordings">
+            <h2>Meeting Recordings</h2>
+
+            <section>
+                <h3>Audio Recording</h3>
+                <p>Complete audio recording of the meeting:</p>
+                <audio controls>
+                    <source src="Romans6_4.m4a">
+                    Your browser does not support the audio element. Please download the audio file below.
+                </audio>
+                <p><em>Recording duration: 1 hour 30 minutes</em></p>
+            </section>
+
+            <section>
+                <h3>Video Recording</h3>
+                <p>Complete video recording of the meeting including screen shares and whiteboard discussion:</p>
+                <video width="400" height="300" controls>
+                    <source src="IMG_2592.MOV" type="video/mp4">
+                    Your browser does not support the video element. Please download the video file below.
+                </video>
+                <p><em>Recording duration: 1 hour 30 minutes</em></p>
+                <p><br></p>
+                <p><strong>Note:</strong> Audio and video files should be placed in the same directory as this HTML file for the recordings to play properly.</p>
+            </section>
+        </section>
+
+        <hr>
+
+        <!-- Feedback Form Section -->
+        <section id="feedback-form">
+            <h2>Meeting Feedback Form</h2>
+            <p>Please provide feedback on this meeting to help us improve future sessions:</p>
+
+            <form>
+                <fieldset>
+                    <legend>General Information</legend>
+
+                    <div>
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name">
+                    </div>
+
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" placeholder="your.email@company.com">
+                    </div>
+
+                    <div>
+                        <label for="meeting-date">Meeting Date:</label>
+                        <input type="date" id="meeting-date" name="meeting-date">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Meeting Rating</legend>
+
+                    <div>
+                        <label>How would you rate the meeting overall?</label>
+                        <br>
+                        <input type="radio" id="rating-excellent" name="overall-rating" value="excellent">
+                        <label for="rating-excellent">Excellent</label>
+                        <br>
+                        <input type="radio" id="rating-good" name="overall-rating" value="good">
+                        <label for="rating-good">Good</label>
+                        <br>
+                        <input type="radio" id="rating-fair" name="overall-rating" value="fair">
+                        <label for="rating-fair">Fair</label>
+                        <br>
+                        <input type="radio" id="rating-poor" name="overall-rating" value="poor">
+                        <label for="rating-poor">Poor</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Topics Covered</legend>
+
+                    <div>
+                        <p>Which topics were most relevant to you? (Check all that apply)</p>
+                        <input type="checkbox" id="topic-architecture" name="topics" value="architecture">
+                        <label for="topic-architecture">Architecture & Technical Design</label>
+                        <br>
+                        <input type="checkbox" id="topic-timeline" name="topics" value="timeline">
+                        <label for="topic-timeline">Timeline & Milestones</label>
+                        <br>
+                        <input type="checkbox" id="topic-resources" name="topics" value="resources">
+                        <label for="topic-resources">Resource Allocation</label>
+                        <br>
+                        <input type="checkbox" id="topic-features" name="topics" value="features">
+                        <label for="topic-features">Feature Discussion</label>
+                        <br>
+                        <input type="checkbox" id="topic-concerns" name="topics" value="concerns">
+                        <label for="topic-concerns">Concerns & Questions</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Feedback</legend>
+
+                    <div>
+                        <label for="priority">What should be our top priority?</label>
+                        <select id="priority" name="priority">
+                            <option value="">-- Select an option --</option>
+                            <option value="timeline">Meeting Timeline</option>
+                            <option value="quality">Code Quality</option>
+                            <option value="features">Feature Completeness</option>
+                            <option value="testing">Testing Coverage</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="improvement-suggestions">What could we improve for next meeting?</label>
+                        <textarea id="improvement-suggestions" name="improvement" rows="4" cols="50" placeholder="Share your suggestions here..."></textarea>
+                    </div>
+
+                    <div>
+                        <label for="action-items">What are your main action items from this meeting?</label>
+                        <datalist id="action-list">
+                            <option value="Code Implementation">
+                            <option value="Documentation">
+                            <option value="Testing">
+                            <option value="Design Review">
+                            <option value="Infrastructure Setup">
+                            <option value="API Development">
+                        </datalist>
+                        <input type="text" id="action-items" list="action-list" placeholder="Type or select an action item...">
+                    </div>
+                </fieldset>
+
+                <button type="submit">Submit Feedback</button>
+                <button type="reset">Clear Form</button>
+            </form>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <h3>Meeting Minutes Summary</h3>
+        <p><strong>Next Meeting:</strong> April 17, 2026 at 2:00 PM</p>
+        <p><strong>Action Items Due:</strong> April 16, 2026</p>
+        <p><em>Minutes prepared by:</em> Sarah Chen, Product Lead</p>
+        <p><em>Last updated:</em> April 10, 2026</p>
+        <p><small>© 2026 Engineering Team. Confidential.</small></p>
+    </footer>
+</body>
+</html>
